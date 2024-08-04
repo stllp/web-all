@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日程管理系统[用户注册]</title>
+
+    <style>
+        .tab {
+            margin: 0px auto;
+            border: 10px solid rgb(29, 211, 181);
+            border-collapse: collapse;
+            border-radius: 5px;
+            width: 800px;
+            height: 200px;
+        }
+
+        .ipt {
+            width: 200px;
+        }
+
+        .ht {
+            text-align: center;
+            color: rgb(29, 211, 181);
+            font-family: '隶书';
+        }
+
+        tr,
+        td {
+            border: 1px solid rgb(29, 211, 181);
+            border-collapse: collapse;
+        }
+
+        .td1 {
+            width: 500px;
+            border: 1px solid rgb(29, 211, 181);
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .td2 {
+            border: 1px solid rgb(29, 211, 181);
+            border-collapse: collapse;
+            /* text-align: right 20px; */
+        }
+
+        .btn {
+            background-color: beige;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function checkPwd() {
+            var input_pwd = document.getElementById("input_pwd")
+            var span_pwd = document.getElementById("span_pwd")
+            var pwd = input_pwd.value
+            var regexp = /^\d{6,10}$/
+            if (regexp.test(pwd)) {
+                span_pwd.innerText = "Ok"
+                return true
+            } else {
+                span_pwd.innerText = "密码必须是6-10位数字"
+            }
+            return false
+        }
+        function checkUserName() {
+            var input_username = document.getElementById("input_username")
+            var span_username = document.getElementById("span_username")
+            var userName = input_username.value
+            var regexp = /^[\w\u4e00-\u9fff]{2,10}$/
+            console.log(userName)
+            console.log(regexp.test(userName))
+            if (regexp.test(userName)) {
+                span_username.innerText = "Ok"
+                return true
+            } else {
+                span_username.innerText = "用户名必须是6-10字符"
+            }
+            return false
+        }
+        function checkLogin() {
+            if (checkPwd() && checkUserName()) {
+                return true
+            }
+            return false
+        }
+        function goRegist(){
+            window.open("regist.html","_blank")
+        }
+    </script>
+</head>
+
+<body>
+    <h1 class="ht">欢迎使用日程管理系统</h1>
+    <h3 class="ht">请登录</h3>
+    <form action="/user/login" method="post" " onsubmit=" return checkLogin()" style="text-align: center">
+        <table id="tablogin" class="tab">
+            <tr class="ltr">
+                <td class="td2">请输入账号:</td>
+                <td class="td1">
+                    <input type="text" class="ipt" name="username" id="input_username" onblur="checkUserName()">
+                    <span id="span_username"></span>
+                </td>
+            </tr>
+            <tr class="ltr">
+                <td class="td2">请输入密码:</td>
+                <td class="td1">
+                    <input type="password" class="ipt" name="pwd" id="input_pwd" onblur="checkPwd()">
+                    <span id="span_pwd"></span>
+                </td>
+            </tr>
+            <tr class=" ltr">
+                <td colspan="2">
+                    <input id="btn_login" type="submit" class="btn" value="登录">
+                    <input id="btn_reset" type="reset" class="btn" value="重置">
+                    <input id="btn_regist" type="button" class="btn" value="去注册" onclick="goRegist()"  >
+                </td>
+
+            </tr>
+        </table>
+    </form>
+
+</body>
+
+</html>

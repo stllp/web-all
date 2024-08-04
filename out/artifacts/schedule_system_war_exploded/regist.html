@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日程管理系统[用户注册]</title>
+
+    <style>
+        .tab {
+            margin: 0px auto;
+            border: 10px solid rgb(29, 211, 181);
+            border-collapse: collapse;
+            border-radius: 5px;
+            width: 800px;
+            height: 200px;
+        }
+
+        .ipt {
+            width: 200px;
+        }
+
+        .ht {
+            text-align: center;
+            color: rgb(29, 211, 181);
+            font-family: '隶书';
+        }
+
+        tr,
+        td {
+            border: 1px solid rgb(29, 211, 181);
+            border-collapse: collapse;
+        }
+
+        .td1 {
+            width: 500px;
+            border: 1px solid rgb(29, 211, 181);
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .td2 {
+            border: 1px solid rgb(29, 211, 181);
+            border-collapse: collapse;
+            /* text-align: right 20px; */
+        }
+
+        .btn {
+            background-color: beige;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function checkPwd() {
+            var input_pwd = document.getElementById("input_pwd")
+            var span_pwd = document.getElementById("span_pwd")
+            var pwd = input_pwd.value
+            var regexp = /^\d{6,10}$/
+            if (regexp.test(pwd)) {
+                span_pwd.innerText = "Ok"
+            } else {
+                span_pwd.innerText = "密码必须是6-10位数字"
+            }
+        }
+        function checkUserName() {
+            var input_username = document.getElementById("input_username")
+            var span_username = document.getElementById("span_username")
+            var userName = input_username.value
+            var regexp = /^[\w\u4e00-\u9fff]{2,10}$/
+            console.log(userName)
+            console.log(regexp.test(userName))
+            if (regexp.test(userName)) {
+                span_username.innerText = "Ok"
+            } else {
+                span_username.innerText = "用户名必须是6-10字符"
+            }
+        }
+        function checkRePwd() {
+            var input_repwd = document.getElementById("input_repwd")
+            var input_pwd = document.getElementById("input_pwd")
+            var span_repwd = document.getElementById("span_repwd")
+            if (input_repwd.value == input_pwd.value) {
+                span_repwd.innerText = "Ok"
+            } else {
+                span_repwd.innerText = "两次输入密码不等"
+            }
+        }
+        function checkRegist() {
+            if (checkPwd() && checkUserName() && checkRePwd()) {
+                return true
+            }
+            return false
+        }
+        function goLogin(){
+            window.open("login.html","_blank")
+        }
+    </script>
+</head>
+
+<body>
+    <h1 class="ht">欢迎使用日程管理系统</h1>
+    <h3 class="ht">请注册</h3>
+    <form action="/user/regist" method="post" " onsubmit=" return checkRegist()" style="text-align: center">
+        <table id="tablogin" class="tab">
+            <tr class="ltr">
+                <td class="td2">请输入账号:</td>
+                <td class="td1">
+                    <input id="input_username" type="text" class="ipt" name="username" onblur="checkUserName()">
+                    <span id="span_username"></span>
+                </td>
+            </tr>
+            <tr class="ltr">
+                <td class="td2">请输入密码:</td>
+                <td class="td1">
+                    <input id="input_pwd" type="password" class="ipt" name="pwd" onblur="checkPwd()">
+                    <span id="span_pwd"></span>
+                </td>
+            </tr>
+            <tr class="ltr">
+                <td class="td2">请再次输入密码:</td>
+                <td class="td1">
+                    <input id="input_repwd" type="password" class="ipt" name="repwd" onblur="checkRePwd()">
+                    <span id="span_repwd"></span>
+                </td>
+            </tr>
+            <tr class="ltr">
+                <td colspan="2">
+                    <input id="btn_regist" type="submit" class="btn" value="注册">
+                    <input id="btn_reset" type="reset" class="btn" value="重置">
+                    <input id="btn_login" type="button" class="btn" value="去登录" onclick="goLogin()">
+                </td>
+
+            </tr>
+        </table>
+    </form>
+
+</body>
+
+</html>
