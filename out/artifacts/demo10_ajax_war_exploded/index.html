@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function getMasssage() {
+            //创建对象
+            var request = new XMLHttpRequest()
+            /** 回调函数
+             * request.readyState 1 2 3 4  状态4为请求返回
+             * request.status 状态码 200 404 …………
+             */
+            request.onreadystatechange = function () {
+                if (request.status == 200 && request.readyState == 4) {
+                    var elementById = document.getElementById("message")
+                    console.log(request.responseText)
+                    elementById.value = request.responseText
+                }
+            }
+            request.open("get","/hello?username=zhangsan")
+            request.send()
+        }
+    </script>
+</head>
+<body>
+<button onclick="getMasssage()">按钮</button>
+<input type="text" id="message" value="">
+</body>
+</html>

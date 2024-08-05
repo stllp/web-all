@@ -16,4 +16,5 @@ public interface SysUserService {
     SysUser findByUsername(String username);
 
     SysUser findByUsernameAndPwd(String username, String pwd);
+
 }
