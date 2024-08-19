@@ -76,21 +76,21 @@
                 span_username.innerText = "用户名必须是6-10字符"
                 return false
             }
-            var xmlHttpRequest = new XMLHttpRequest();
-            xmlHttpRequest.onreadystatechange = function () {
-                if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
-                    console.log(xmlHttpRequest.responseText)
-                    span_username.innerText = xmlHttpRequest.responseText
-                    if (xmlHttpRequest.responseText == "OK") {
-                        return true
-                    } else {
-                        return false
-                    }
-                }
-            }
-            xmlHttpRequest.open("get", "/user/findByUserName?username=" + userName)
-            xmlHttpRequest.send()
-            // return true
+            // var xmlHttpRequest = new XMLHttpRequest();
+            // xmlHttpRequest.onreadystatechange = function () {
+            //     if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+            //         console.log(xmlHttpRequest.responseText)
+            //         span_username.innerText = xmlHttpRequest.responseText
+            //         if (xmlHttpRequest.responseText == "OK") {
+            //             return true
+            //         } else {
+            //             return false
+            //         }
+            //     }
+            // }
+            // xmlHttpRequest.open("get", "/user/findByUserName?username=" + userName)
+            // xmlHttpRequest.send()
+            return true
         }
 
         function validUserName() {
@@ -142,7 +142,7 @@
         <tr class="ltr">
             <td class="td2">请输入账号:</td>
             <td class="td1">
-                <input id="input_username" type="text" class="ipt" name="username" onblur="checkUserName()">
+                <input id="input_username" type="text" class="ipt" name="username" onblur="checkUserName();validUserName()">
                 <span id="span_username"></span>
             </td>
         </tr>

@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/demo04-forward-edidrect/demo04-forward-edidrect.iml" filepath="$PROJECT_DIR$/demo04-forward-edidrect/demo04-forward-edidrect.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo10-ajax/demo10-ajax.iml" filepath="$PROJECT_DIR$/demo10-ajax/demo10-ajax.iml" />
       <module fileurl="file://$PROJECT_DIR$/schedule-system/schedule-system.iml" filepath="$PROJECT_DIR$/schedule-system/schedule-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/schedule-system-separate/schedule-system-separate.iml" filepath="$PROJECT_DIR$/schedule-system-separate/schedule-system-separate.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/web-all.iml" filepath="$PROJECT_DIR$/.idea/web-all.iml" />
     </modules>
   </component>
